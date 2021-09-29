@@ -9,7 +9,7 @@ de notas al completo con un diseño amigable
 Journal además cuenta con autentificación usando firebase de backend, así como protección de rutas
 usando tanto privadas como públicas haciendo uso de redux.
 
-### Estructura de carpetas
+## Estructura de carpetas
 
 actions --> en las actions contiene todo acerca de los dispatch que se pueden realizar
 
@@ -33,7 +33,7 @@ store --> contiene el archivo configurado y manejado especialmente para redux.
 types --> debido a que usamos distintos useReducer , para provocar posibles errores humanos etc. Se creo dicho archivo,
 que tiene un objeto con todos los types posibles tales como logIn, logOut entre otros.
 
-### Estilos Utilizados
+## Estilos Utilizados
 
 Para el diseño utilize tailwind como libreria principal para css en conjunto con daisyUI.
 
