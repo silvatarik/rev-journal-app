@@ -33,7 +33,7 @@ store --> contiene el archivo configurado y manejado especialmente para redux.
 types --> debido a que usamos distintos useReducer , para provocar posibles errores humanos etc. Se creo dicho archivo,
 que tiene un objeto con todos los types posibles tales como logIn, logOut entre otros.
 
-#### Estilos Utilizados
+### Estilos Utilizados
 
 Para el diseño utilize tailwind como libreria principal para css en conjunto con daisyUI.
 
