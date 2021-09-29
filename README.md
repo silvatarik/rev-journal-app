@@ -12,7 +12,9 @@ usando tanto privadas como públicas haciendo uso de redux.
 ### Estructura de carpetas
 
 actions --> en las actions contiene todo acerca de los dispatch que se pueden realizar
+
 components --> como la palabra indica esta carpeta es exclusiva para los componentes en la cual
+
 posteriormente se subdiviran según cada vista y de esa manera llevar un orden
 firebase --> dentro de esta carpeta encontramos todo aquello para usar firabase como backEnd
 hooks --> en el directorio hooks se encuentran todos los custom Hooks de la app que se utilizaran
