@@ -1,0 +1,99 @@
+
+.journal__main-content{
+    display:flex;
+}
+
+.journal__sidebar{
+    background-color: $dark-grey;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 450px;
+}
+
+.journal__sidebar-navbar{
+    display: flex;
+    justify-content: space-between;
+}
+
+.journal__new-entry{
+    align-items: center;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    margin-top: 30px;
+    width: 100%;
+
+
+    transition: color .3s;
+    &:hover {
+        color: darken($color: white , $amount: 20);
+    }
+}
+
+.journal__entries{
+    margin-top:30px;
+    flex: 1 1 auto;
+    overflow : auto;
+    height: 100%;
+    
+}
+
+.journal__entry{
+    background-color:white;
+    border-radius: 4px;
+    color: $dark-grey;
+    display: flex;
+    margin-bottom: 10px;
+    overflow: hidden;
+}
+
+.journal__entry-picture{
+    height: 100%;
+    width:65px;
+}
+
+.journal__entry-body{
+    padding:5px 0px 0px 10px;
+}
+.journal__entry-title{
+    font-size: 14px;
+    font-weight: bold;
+}
+.journal__entry-content{
+    font-size: 10px;
+}
+
+.journal__entry-date-box{
+    padding: 5px;
+}
+
+.journal__entry-date-box {
+    display: block;
+    text-align:right;
+    font-size:12px;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #f1f1f1;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #888;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+  }

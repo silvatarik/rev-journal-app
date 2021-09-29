@@ -1,0 +1,9 @@
+@import './base/settings';
+@import './components/journal__main-content.scss';
+@import './components/nothing.scss';
+@import './components/notes.scss';
+
+.form-control{
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
