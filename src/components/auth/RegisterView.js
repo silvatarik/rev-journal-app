@@ -95,7 +95,7 @@ export const RegisterView = () => {
             <div className="hero min-h-screen">
 
                 <div className="hero-content w-96 bg-base-200 rounded">
-                    <form onSubmit={handleSubmit} className="p-5 w-full">
+                    <form onSubmit={handleSubmit} className="p-5 w-full animate__animated animate__fadeIn animate__faster">
                         <h1 className=" text-5xl py-3 font-bold">
                             Registro
                         </h1>

@@ -1,9 +1,10 @@
 import { useState } from 'react/cjs/react.development'
 
 export const useForm = (initialState = {}) => {
+
     const [state, setstate] = useState(initialState);
 
-    const reset = () => {
+    const reset = (newFormState = initialState) => {
         setstate(initialState);
     }
 

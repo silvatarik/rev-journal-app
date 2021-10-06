@@ -2,6 +2,7 @@ import { getAuth, signInWithPopup, createUserWithEmailAndPassword, updateProfile
 import Swal from 'sweetalert2';
 import { googleAuthProvider } from '../firebase/firebase-config';
 import { types } from '../types/types';
+import { cleanNotes } from './notes';
 import { finishLoading, startLoading } from './ui';
 
 const auth = getAuth();
@@ -20,7 +21,7 @@ export const startLoginEmailPassword = (email, password) => {
                 }, 3000);
             })
             .catch((error) => {
-                const errorCode = error.code;
+                /* const errorCode = error.code; */
                 const errorMessage = error.message;
                 dispatch(finishLoading());
                 Swal.fire(
@@ -70,6 +71,7 @@ export const startLogout = () => {
     return (dispatch) => {
         signOut(auth).then(() => {
             console.log('Signed Out');
+            dispatch(cleanNotes());
             dispatch(logout());
         }, function (error) {
             console.error('Sign Out Error', error);
@@ -81,3 +83,4 @@ export const startLogout = () => {
 export const logout = () => ({
     type: types.logout
 })
+

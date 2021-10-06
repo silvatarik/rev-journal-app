@@ -3,6 +3,7 @@ import {
 } from 'redux';
 import thunk from 'redux-thunk';
 import { authReducer } from '../reducers/authReducer';
+import { notesReducer } from '../reducers/notesReducer';
 import { uiReducer } from '../reducers/uiReducer';
 
 
@@ -13,7 +14,8 @@ const composeEnhancers = (typeof window !== 'undefined' && window.__REDUX_DEVTOO
 /* Solo recibe un reducer el createStore de Redux.Sin embargo existe un metodo para poder combinarlos */
 const reducers = combineReducers({
     auth: authReducer,
-    ui:uiReducer
+    ui:uiReducer,
+    notes:notesReducer
 });
 
 

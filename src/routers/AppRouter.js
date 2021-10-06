@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import {
     BrowserRouter as Router,
-    Switch,
-    Route
+    Switch
 } from "react-router-dom";
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
@@ -13,8 +12,7 @@ import { login } from '../actions/auth';
 import { PrivateRoute } from './PrivateRoute';
 import { PublicRouter } from './PublicRouter';
 
-/* SweatAlert */
-import Swal from 'sweetalert2';
+import { startLoadingNotes } from '../actions/notes';
 
 export const AppRouter = () => {
     const dispatch = useDispatch();
@@ -30,6 +28,8 @@ export const AppRouter = () => {
             if (user?.uid) {
                 dispatch(login(user.uid, user.displayName));
                 setisAunthenthicate(true);
+
+                dispatch(startLoadingNotes(user.uid));
             } else {
                 setisAunthenthicate(false);
             }
@@ -38,11 +38,11 @@ export const AppRouter = () => {
         })
 
     }, [auth, dispatch, setisAunthenthicate]);
-
+/* 
     if (checking) {
-        /* return 'Espere...'; */
-        
-    }
+        return 'Espere...';
+
+    } */
 
     return (
         <Router>

@@ -1,26 +1,38 @@
-import React from 'react'
+import React from 'react';
+import moment from 'moment'
+import { useDispatch } from 'react-redux';
+import { ActiveNotes } from '../../actions/notes';
+import { useSelector } from 'react-redux';
 
-export const JournalEntrie = () => {
+export const JournalEntrie = ({ id, date, title, body, url }) => {
+
+    const state = useSelector(state => state.notes.active)
+
+    /* console.log(id) */
+    /*  Añadimos el dispatch */
+    const dispatch = useDispatch();
+    const noteDate = moment(date);
+    const notes = { title: title, body: body, url: url }
+    // console.log(notes)
+    const handleActiveClick = () => {
+        dispatch(ActiveNotes(id, notes));
+    }
+
     return (
-        <div className="journal__entry cursor-pointer">
-            <div className="grid grid-cols-12">
-                <div className="col-span-2 hidden lg:block journal__entry-picture"
-                    style={{ backgroundSize: 'cover', backgroundImage: 'url(https://picsum.photos/200/300)' }}>
+        <div className="journal__entry cursor-pointer animate__animated animate__fadeIn animate__faster" onClick={handleActiveClick}>
 
-                </div>
-                <div className=" col-span-10 journal__entry-body">
-                    <p className="journal__entry-title pl-1">
-                        Un nuevo día
-                    </p>
-                    <p className="journal__entry-content pl-1">
-                        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ipsam, error repudiandae iste odit labore illum corporis consequuntur repellendus
-                        iure sapiente dolor itaque laborum ex delectus numquam magni soluta quasi doloribus?
-                    </p>
-                    <div className="journal__entry-date-box">
-                        <span>Monday 28</span>
-                    </div>
-                </div>
+            {(url !== '') && (<img className="w-16" src={url} alt=''/>)}
 
+            <div tabIndex="0" className="collapse  w-full journal__entry-body collapse-arrow">
+                <p className="collapse-title font-medium">
+                    {title} {(state?.id === id) && (<span className="badge badge-primary ml-1">Selected</span>)}
+                </p>
+                <div className="collapse-content">
+                    <p className="text-justify text-sm truncate ...">
+                        {body}
+                    </p>
+                    <span className="block text-right">{noteDate.format('ll')}</span>
+                </div>
             </div>
         </div>
     )
