@@ -9,15 +9,12 @@ export const LoginView = () => {
 
   const history = useHistory();
 
-  /* Con el useSelector podemos acceder al state */
   const state = useSelector(state => state);
   const { ui } = state;
 
-  /* Variables para manejar la validacion */
   let emailError = true;
   let passwordError = true;
 
-  /* Con esto ya tenemos acceso al dispatch */
   const dispatch = useDispatch();
 
   const [formValues, handleInputChange] = useForm({
@@ -40,8 +37,6 @@ export const LoginView = () => {
     dispatch(startGoogleLogin());
   }
 
-  /* Comprobar que el formulario sea valido */
-
   const isFormValid = () => {
 
     if (!validator.isEmail(email)) {
@@ -60,7 +55,6 @@ export const LoginView = () => {
     return true;
   }
 
-  /* Estilos */
   const style = {
     inputCustom: 'bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none',
     buttonLoad: 'bg-gray-700 text-white font-bold py-2 px-4 w-full rounded hover:bg-gray-600'

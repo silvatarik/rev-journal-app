@@ -17,14 +17,10 @@ import { startLoadingNotes } from '../actions/notes';
 export const AppRouter = () => {
     const dispatch = useDispatch();
     const auth = getAuth();
-    const [checking, setChecking] = useState(true);
-    /*  const MySwal = withReactContent(Swal); */
     const [isAunthenthicate, setisAunthenthicate] = useState(false);
 
-    /* Mantener los datos incluso si se recarga la pagina */
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
-            /*  console.log(user); */
             if (user?.uid) {
                 dispatch(login(user.uid, user.displayName));
                 setisAunthenthicate(true);
@@ -33,31 +29,16 @@ export const AppRouter = () => {
             } else {
                 setisAunthenthicate(false);
             }
-
-            setChecking(false);
         })
 
     }, [auth, dispatch, setisAunthenthicate]);
-/* 
-    if (checking) {
-        return 'Espere...';
-
-    } */
 
     return (
         <Router>
             <div>
                 <Switch>
-                    {/* Esta ruta y sub son para la auth */}
-                    {/* <Route path="/auth" component={AuthRouter} /> */}
                     <PublicRouter path="/auth" component={AuthRouter} isAunthenthicate={isAunthenthicate} />
-
-
-                    {/* Esta ruta redirige a journalView */}
-                    {/* <Route exact path="/" component={JournalView} /> */}
                     <PrivateRoute exact path="/" component={JournalView} isAunthenthicate={isAunthenthicate} />
-
-
                 </Switch>
             </div>
         </Router>

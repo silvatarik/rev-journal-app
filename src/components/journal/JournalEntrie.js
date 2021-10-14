@@ -8,12 +8,10 @@ export const JournalEntrie = ({ id, date, title, body, url }) => {
 
     const state = useSelector(state => state.notes.active)
 
-    /* console.log(id) */
-    /*  Añadimos el dispatch */
     const dispatch = useDispatch();
     const noteDate = moment(date);
     const notes = { title: title, body: body, url: url }
-    // console.log(notes)
+
     const handleActiveClick = () => {
         dispatch(ActiveNotes(id, notes));
     }

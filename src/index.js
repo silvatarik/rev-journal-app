@@ -4,7 +4,8 @@ import './index.css';
 import './styles/styles.scss';
 import { JournalApp } from './JournalApp';
 
+
 ReactDOM.render(
-    <JournalApp />,
+    <JournalApp/>,
   document.getElementById('root')
 );

@@ -9,13 +9,11 @@ export const Sidebar = () => {
     const handleLogout = () => {
         dispatch(startLogout());
     }
-
-
-    /* Accedemos al state para obtener los valores del mismo usando useSelector */
+    
     const state = useSelector(state => state);
     const { auth: user } = state;
 
-    /* Manejamos el disparador para hacer una nueva entrada de notas */
+    
     const handleAddEntry = () => {
         dispatch(startNewNotes());
     }

@@ -5,7 +5,6 @@ import { loadNotes } from "../helpers/loadNotes";
 import { fileUpload } from "../helpers/fileUpload";
 import Swal from 'sweetalert2';
 
-/* Tarea asincrona */
 export const startNewNotes = () => {
     return async (dispatch, getState) => {
         const uid = getState().auth.uid;
@@ -20,8 +19,6 @@ export const startNewNotes = () => {
         const doc = await addDoc(collection(db, `${uid}`, '/journal/notes'), { ...newNote });
 
         dispatch(ActiveNotes(doc.id, newNote));
-
-        /* dispatch(startLoadingNotes(uid)); */
         dispatch(addNewNote(doc.id,newNote));
     }
 }
@@ -84,7 +81,6 @@ export const startUploading = (file) => {
         sweetAlertLoading();
         activeNotes.url = fileUrl;
         dispatch(startSaveNote(activeNotes));
-        /* console.log(fileUrl) */
     }
 }
 
@@ -112,8 +108,6 @@ export const deleteNote = (id) => ({
 export const cleanNotes = () => ({
     type: types.notesCleaning
 })
-
-/* sweetAlert */
 
 const sweetAlertSaving = (text) => {
     const Toast = Swal.mixin({

@@ -6,13 +6,11 @@ export const loadNotes = async (uid) => {
 
     const querySnapshot = await getDocs(collection(db, `${uid}`, '/journal/notes'));
     querySnapshot.forEach((doc) => {
-        /*  console.log(doc.id, " => ", doc.data()); */
         notes.push({
             id: doc.id,
             ...doc.data(),
         })
     });
-    /*  console.log(notes) */
     return notes;
 
 }

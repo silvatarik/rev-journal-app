@@ -7,8 +7,6 @@ export const PublicRouter = ({
     component: Component,
     ...rest
 }) => {
-    
-    //Con el rest le pasamos todas las variables restantes
     return (
         <Route {...rest}
             component={(props) => (

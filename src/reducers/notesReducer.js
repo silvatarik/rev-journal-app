@@ -1,15 +1,3 @@
-/* {
-    notes : [],
-    active: null,
-    active:{
-        id: 'awdwadawdawaw',
-        title: '',
-        body : '',
-        imageUrl: '',
-        date: ''
-    }
-} */
-
 import { types } from "../types/types";
 
 const initialState = {

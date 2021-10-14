@@ -7,13 +7,11 @@ import { finishLoading, startLoading } from './ui';
 
 const auth = getAuth();
 
-/* Tarea asincrona - por tanto hay que retornar un callback*/
 export const startLoginEmailPassword = (email, password) => {
     return (dispatch) => {
         dispatch(startLoading());
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                // Signed in
                 const user = userCredential.user;
                 setTimeout(() => {
                     dispatch(finishLoading());
@@ -21,7 +19,6 @@ export const startLoginEmailPassword = (email, password) => {
                 }, 3000);
             })
             .catch((error) => {
-                /* const errorCode = error.code; */
                 const errorMessage = error.message;
                 dispatch(finishLoading());
                 Swal.fire(
@@ -34,7 +31,6 @@ export const startLoginEmailPassword = (email, password) => {
     }
 }
 
-/* Tarea asincrona - por tanto hay que retornar un callback*/
 export const startRegisterWithEmailPassword = (email, password, name) => {
     return (dispatch) => {
         createUserWithEmailAndPassword(auth, email, password)

@@ -12,10 +12,10 @@ export const RegisterView = () => {
     let passwordError = true;
     let password2Error = true;
 
-    /* Con el useSelector podemos acceder al state */
+    
     const state = useSelector(state => state);
     const { ui } = state;
-    /* Con esto ya tenemos acceso al dispatch */
+    
     const dispatch = useDispatch();
 
 

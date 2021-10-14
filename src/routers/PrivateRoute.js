@@ -7,8 +7,6 @@ export const PrivateRoute = ({
     component: Component,
     ...rest
 }) => {
-
-    //Con el rest le pasamos todas las variables restantes
     return (
         <Route {...rest}
             component={(props) => (
